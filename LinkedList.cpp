@@ -43,6 +43,22 @@ void removeItem(int n)
 
 }
 
+void insertInto(int p, int n)
+{
+   int i=1; Node* temp = head;
+   p=p-1;
+   while(i<p)
+   {
+     temp = temp->next ;
+     i++;
+   }
+   Node* temp1 = (Node*)malloc(sizeof(Node));
+   temp1->data = n; temp1->next = temp->next ;
+   temp->next = temp1;
+
+
+}
+
 void printlink()
 {
     Node * temp = head;
@@ -53,6 +69,22 @@ void printlink()
     }
 
 
+}
+
+void operation()
+{   int n;
+    printf("\nWhich Operation you want ? : \n1.Add \n2.insert\n3.remove\n");
+      char ch ; scanf("%c",&ch);
+     switch(ch)
+     {
+        case '1' : printf("please enter number : ");
+                   scanf("%d, ",&n); Add(n); printlink(); break ;
+        case '2' :printf("please enter position and number : ");
+                   int p ; scanf("%d %d",&p, &n); insertInto(p,n); printlink(); break ;;
+        case '3' : printf("please enter number : ");
+                   scanf("%d, ",&n); removeItem(n);  printlink(); break ;
+
+     }
 }
 int main()
 {
@@ -71,18 +103,11 @@ int main()
     printf("Printing the arrays : ");
     printlink();
 
-    printf("\nWhich Operation you want ? : \n1.Add \n2.insert\n3.remove\n");
-      scanf("%c",&ch);
-     switch(ch)
-     {
-        case '1' : printf("please enter number : ");
-                   scanf("%d, ",&n); Add(n); printlink(); break ;
-        case '2' :break;
-        case '3' : printf("please enter number : ");
-                   scanf("%d, ",&n); removeItem(n);  printlink(); break ;
-
-     }
-
+    while(1)
+    {
+        char ch;scanf("%c",&ch);
+      operation();
+    }
 
 }
 
