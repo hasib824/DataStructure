@@ -46,21 +46,14 @@ void removeItem(int n)
 void insertInto(int p, int n)
 {
    int i=1; Node* temp = head;
-
    p=p-1;
-   if(p==0)
-   {
-       Add(n);
-       return;
-   }
    while(i<p)
    {
      temp = temp->next ;
      i++;
    }
    Node* temp1 = (Node*)malloc(sizeof(Node));
-   temp1->data = n;
-   temp1->next = temp->next ;
+   temp1->data = n; temp1->next = temp->next ;
    temp->next = temp1;
 
 
@@ -104,7 +97,7 @@ int main()
          i++;
      }
 
-
+     char ch;scanf("%c",&ch);
 
 
     printf("Printing the arrays : ");
