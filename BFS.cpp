@@ -6,7 +6,7 @@ using namespace std;
 int V,E;
 vector<int> Graph[10];
 vector<int> distle[10];
-int maxdistl=0 ;
+int maxdist=0 ;
 
 void insert_graph()
 {
@@ -47,15 +47,18 @@ void bfs()
 {   int u,i,j;
     for(i=1;i<=V;i++)
     {
+
         visited[i]=0; // 1 if visited and 0 if not visited
         d[i]=999999;
         p[i]=-1;
     }
     queue<int>q;
 
-    visited[1]=1;
-    d[1]=0;
-    q.push(1);
+    printf("\nPlease Enter the agent : ");
+    int agent ; scanf("%d",&agent);
+    visited[agent]=1;
+    d[agent]=0;
+    q.push(agent);
     while(!q.empty())
     {
        u=q.front();
@@ -69,39 +72,34 @@ void bfs()
               visited[j]=1;
               p[j]=u;
               d[j]=d[u]+1;
-              if(d[j]>maxdistl) maxdistl = d[j] ;
-              distle[d[j]].push_back(j);  // Calculating the level
+              if(d[j]>maxdist)
+              {
+                  maxdist= d[j];
+             }
               q.push(j);
            }
        }
 
     }
 }
-/*
-void print_distance()
-{
-    printf("\nPrinting the distance : \n");
-     for(int i=1;i<=V;i++)
-     {
-         printf("Distance of %d is : %d\n",i,d[i]);
-     }
-}
-
-*/
 
 
 void print_distance()
 {
-    printf("\nPrinting the distance : \n");
-     for(int i=1;i<=maxdistl;i++)
+    printf("\nPrinting the distance :");
+     for(int i=0;i<=maxdist;i++)
      {
-         printf("\nLevel %d : \n",i);
-         for(int j=0;j<=distle[i].size();j++)
+         printf("\nLevel %d : ",i);
+         for(int j=1;j<=V;j++)
          {
-             printf("%d, ",i,distle[i][j]);
+            if(d[j]==i)
+            {
+              printf("%d, ",j);
+            }
          }
 
      }
+     printf("\n");
 }
 int main()
 {
