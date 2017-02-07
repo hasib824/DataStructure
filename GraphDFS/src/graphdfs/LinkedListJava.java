@@ -136,20 +136,16 @@ class Linkedlist_c<T>
    
    void popFirst()
    {
-       Node temp1 = firstT.prev;
-       temp1.Next= null;       
-       firstT= null ;    
-       firstT = temp1;       
+       firstT = firstT.prev;
+       firstT.Next= null;             
        System.gc(); 
        
    }
     
    void popLast()
    {
-       Node temp = lastH.Next ; 
-       temp.prev = null; 
-       lastH.Next = null; 
-       lastH.Next = temp;      
+       lastH = lastH.Next ; 
+       lastH.prev = null;      
        System.gc();
        
    }
