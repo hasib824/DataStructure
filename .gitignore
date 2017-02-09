@@ -45,3 +45,15 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+/GraphDFS/nbproject/private/
+/GraphDFS/dist/
+/GraphDFS/build/
+/JavaApplication41/nbproject/private/
+/JavaApplication41/build/
+/JavaApplication41/dist/
+/Java_Implementations/LinkedList/dist/
+/Java_Implementations/LinkedList/build/
+/LinkedListJava/nbproject/private/
+/LinkedListJava/build/
+/LinkedListJava/dist/
+/DFS/nbproject/private/
