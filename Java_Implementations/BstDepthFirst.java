@@ -15,7 +15,7 @@ public class BstDepthFirst
 	   }
 	    
 		
-	    Dfs<Integer> dfs = new Dfs(bst.getRoot());
+	    Dfs<Bst.TreeNode,Integer> dfs = new Dfs(bst.getRoot());
 		dfs.travarse();
 	    HashMap<Integer,Integer> distance = dfs.getDistance();
 		int height = dfs.getHeight();
@@ -24,27 +24,25 @@ public class BstDepthFirst
 		 for(int i=0;i<=height;i++)
 	     {  
           System.out.print("Level "+i+" : ");
-	     for(Integer key: keySet)
-	     {  
-	       
+	      for(Integer key: keySet)
+	      {  	       
 	       if(distance.get(key) == i)
-		   {
+		    {
 		      System.out.print(key+", ");   
-		   }
-		   
-	     }
+		    }		   
+	      }
 		 System.out.println("");
 	  }
    }
 
 }
 
-class Dfs<E extends Comparable<E>>
+class Dfs<T extends Bst.TreeNode,E extends Comparable<E>>
 {
   private HashMap<E,Integer> distance;
   private int height; 
-  private Bst.TreeNode root;
-  Dfs(Bst.TreeNode root)
+  private T root;
+  Dfs(T root)
   {
 	 distance= new HashMap(); 
 	 height = 0; 
@@ -57,18 +55,18 @@ class Dfs<E extends Comparable<E>>
 	  doTravarse(root);
   }
   
-  void doTravarse(Bst.TreeNode root)
+  void doTravarse(T root)
   {
 	  int dist = distance.get(root.data)+1; 
 	  if(root.left!=null)
 	  {   
           distance.put((E)root.left.data,dist); if(dist>height) height= dist ;
-		  doTravarse(root.left); 
+		  doTravarse((T)root.left); 
 	  }
 	  if(root.right !=null)
 	  {
 	      distance.put((E)root.right.data,dist); if(dist>height) height= dist ;
-		  doTravarse(root.right); 
+		  doTravarse((T)root.right); 
 	  }
   }
   HashMap<E,Integer> getDistance()
