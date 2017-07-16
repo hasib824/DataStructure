@@ -7,7 +7,7 @@ https://drive.google.com/drive/folders/0Bzr6_EXSM9kIY3VsNTNBcmVZdVE?usp=sharing
 #include<bits/stdc++.h>
 using namespace std;
 int *datas = new int[1000];
-int *tree = new int[3000]; // 3 times more morey need for the segment tree
+int *tree = new int[3000]; // 3 times more memory needed for the segment tree
 int *lazy = new int[3000];
 
 
@@ -82,7 +82,7 @@ int queryLazy(int low,int high,int pos,int queryLowIdx,int queryHighIdx)
 }
 
 void printTree(int l)
-{  l*=3;
+{
    for(int i=0;i<l;i++) printf("%d, ",tree[i]);
 }
 
@@ -91,7 +91,7 @@ int main()
     printf("How many datas ? : ");
     int n; scanf("%d",&n); initialize(n);
     for(int i=0;i<n;i++) scanf("%d",(datas+i));
-    buildTree(0,n-1,0); printTree(n);
+    buildTree(0,n-1,0); printTree(n*3);
     while(1)
     {
         printf("\n\nOperations   :\n1.Single Update\n2.Query Lazy\n3.Range update\n");
@@ -103,7 +103,7 @@ int main()
             printf("Please enter value and position : \n");
             int value;int idx ;
             scanf("%d %d",&value,&idx);
-            update(0,n-1,0,idx,value);printTree(n);
+            update(0,n-1,0,idx,value);printTree(n*3);
             break;
         case 2:
             printf("Please enter range of query : \n");
@@ -116,7 +116,7 @@ int main()
             int increaseValue; int updateLowIdx;int updateHighIdx ;
             scanf("%d %d %d",&increaseValue,&updateLowIdx,&updateHighIdx);
             lazyUpdate(0,n-1,0,updateLowIdx,updateHighIdx,increaseValue);
-            printTree(n);
+            printTree(n*3);
             break;
         default :
             printf("Please select right operation\n");
