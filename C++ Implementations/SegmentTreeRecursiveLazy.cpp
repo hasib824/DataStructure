@@ -36,7 +36,7 @@ void update(int low,int high, int pos,int idx,int value)
 }
 
 void lazyHelper(int low,int high,int pos) // Helper method to maintain the Lazy and main tree
-{
+{    printf("Called \n");
     tree[pos]+=lazy[pos];
     if(low!=high)  // If not a Leaf Node , making childs not updted yet
     {
@@ -48,7 +48,7 @@ void lazyHelper(int low,int high,int pos) // Helper method to maintain the Lazy 
 
 void lazyUpdate(int low,int high,int pos,int updateLowIdx,int updateHighIdx,int increaseValue )
 {
-        if(!lazy[pos]) lazyHelper(low,high,pos); // If the index is not up to date, then make it update
+        if(lazy[pos]!=0) lazyHelper(low,high,pos); // If the index is not up to date, then make it update
 
         if(high<updateLowIdx || low>updateHighIdx) return ; // No Overlap
         if(updateLowIdx<=low && high<=updateHighIdx) // Total overlap
@@ -71,10 +71,14 @@ void lazyUpdate(int low,int high,int pos,int updateLowIdx,int updateHighIdx,int 
 
 int queryLazy(int low,int high,int pos,int queryLowIdx,int queryHighIdx)
 {
-    if(!lazy[pos]) lazyHelper(low,high,pos);// If the index is not up to date, then make it update
+    if(lazy[pos]!=0) lazyHelper(low,high,pos);// If the index is not up to date, then make it update
 
     if(high<queryLowIdx || low>queryHighIdx) return 0;  // No overlap
-    if(queryLowIdx<=low && high<=queryHighIdx) return tree[pos];  // Total Overlap
+    if(queryLowIdx<=low && high<=queryHighIdx)
+    {
+         printf("Low %d, high %d, pos  %d value %d\n",low,high,pos,tree[pos]);
+         return tree[pos];  // Total Overlap
+    }
     int mid= (high-low)/2+low;
     int left = queryLazy(low,mid,pos*2+1,queryLowIdx,queryHighIdx);
     int right = queryLazy(mid+1,high,pos*2+2,queryLowIdx,queryHighIdx);
@@ -83,7 +87,7 @@ int queryLazy(int low,int high,int pos,int queryLowIdx,int queryHighIdx)
 
 void printTree(int l)
 {
-   for(int i=0;i<l;i++) printf("%d, ",tree[i]);
+   for(int i=0;i<l;i++) printf("%d : %d\n",i,tree[i]);
 }
 
 int main()
@@ -100,7 +104,7 @@ int main()
         switch(op)
         {
         case 1:
-            printf("Please enter value and position : \n");
+            printf("Please enter value and position to single update: \n");
             int value;int idx ;
             scanf("%d %d",&value,&idx);
             update(0,n-1,0,idx,value);printTree(n*3);
@@ -159,6 +163,13 @@ https://drive.google.com/drive/folders/0Bzr6_EXSM9kIY3VsNTNBcmVZdVE?usp=sharing
 3
 5
 2 17
+
+3
+5
+10 18
+
+2
+11 13
 
 
 */
