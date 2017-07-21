@@ -18,78 +18,96 @@ struct Node
 Node* head=NULL;
 Node* tail=NULL;
 
-void push(int a)
+class DQ
 {
-   if(head==NULL)
-   {
-       head = new Node(); head->a = a;
-       tail = head; return;
-   }
-   Node* temp = new Node;
-   temp->prev = tail ;
-   tail->next = temp;
-   tail = tail->next;
-   tail->a = a ;
-}
-bool dq_empty()
-{
-    return head==NULL ;
-}
+public:
+    void push(int a)
+    {
+        if(head==NULL)
+        {
+            head = new Node();
+            head->a = a;
+            tail = head;
+            return;
+        }
+        Node* temp = new Node;
+        temp->prev = tail ;
+        tail->next = temp;
+        tail = tail->next;
+        tail->a = a ;
+    }
+    bool dq_empty()
+    {
+        return head==NULL ;
+    }
 
-int dq_front()
-{
-    return head->a;
-}
+    int dq_front()
+    {
+        return head->a;
+    }
 
-int dq_end()
-{
-    return tail->a;
-}
+    int dq_end()
+    {
+        return tail->a;
+    }
 
-void dq_pop_front()
-{
-    head = head->next ;
-    delete head->prev; head->prev = NULL ;
-}
+    void dq_pop_front()
+    {
+        head = head->next ;
+        delete head->prev;
+        head->prev = NULL ;
+    }
 
-void dq_pop_end()
-{
-   tail = tail->prev;
-   delete tail->next; tail->next= NULL;
+    void dq_pop_end()
+    {
+        tail = tail->prev;
+        delete tail->next;
+        tail->next= NULL;
 
-}
+    }
 
 
-void dq_free(Node* dqHead)
-{
-  if(dqHead->next== NULL) { delete dqHead; return;}
-  dq_free(dqHead->next);
-  delete dqHead; dqHead = NULL;
-}
+    void dq_free(Node* dqHead)
+    {
+        if(dqHead->next== NULL)
+        {
+            delete dqHead;
+            return;
+        }
+        dq_free(dqHead->next);
+        delete dqHead;
+        dqHead = NULL;
+    }
+};
 
 int main()
 {
-  int tc;
-  scanf("%d",&tc);
-  for(int t=1;t<=tc;t++)
-  {
-     int totalNmbr;
-     scanf("%d",&totalNmbr);
-     cout<<"if empty : "<<dq_empty()<<"\n";
-     for(int i=0;i<totalNmbr;i++)
-     {
-         scanf("%d",&data[i]);
-         push(data[i]);
-     }
-     cout<<"if empty : "<<dq_empty()<<"\n";
-     printf("front : %d back %d\n",dq_front(),dq_end());
-     dq_pop_front(); dq_pop_end();
-     printf("front : %d back %d\n",dq_front(),dq_end());
-     dq_free(head); head = NULL; tail = NULL;
-     cout<<"Freeing DQ \n"<<"if empty : "<<dq_empty()<<"\n";
+    int tc;
+    scanf("%d",&tc);
+    for(int t=1; t<=tc; t++)
+    {
+        DQ Q;
 
-  }
-  return 0;
+        int totalNmbr;
+        scanf("%d",&totalNmbr);
+        cout<<"if empty : "<<Q.dq_empty()<<"\n";
+        for(int i=0; i<totalNmbr; i++)
+        {
+            scanf("%d",&data[i]);
+            Q.push(data[i]);
+        }
+        cout<<"if empty : "<<Q.dq_empty()<<"\n";
+        printf("front : %d back %d\n",Q.dq_front(),Q.dq_end());
+        Q.dq_pop_front();
+        Q.dq_pop_end();
+        printf("front : %d back %d\n",Q.dq_front(),Q.dq_end());
+        Q.dq_free(head);
+        head = NULL;
+        tail = NULL;
+        cout<<"Freeing DQ \n"<<"if empty : "<<Q.dq_empty()<<"\n";
+
+    }
+    return 0;
 }
 
 
