@@ -59,6 +59,14 @@ void dq_pop_end()
 
 }
 
+
+void dq_free(Node* dqHead)
+{
+  if(dqHead->next== NULL) { delete dqHead; return;}
+  dq_free(dqHead->next);
+  delete dqHead; dqHead = NULL;
+}
+
 int main()
 {
   int tc;
@@ -77,6 +85,8 @@ int main()
      printf("front : %d back %d\n",dq_front(),dq_end());
      dq_pop_front(); dq_pop_end();
      printf("front : %d back %d\n",dq_front(),dq_end());
+     dq_free(head); head = NULL; tail = NULL;
+     cout<<"Freeing DQ \n"<<"if empty : "<<dq_empty()<<"\n";
 
   }
   return 0;
@@ -87,7 +97,6 @@ int main()
 /*
 1
 7
-2
 
 3
 4
