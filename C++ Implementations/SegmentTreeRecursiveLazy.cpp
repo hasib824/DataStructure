@@ -1,5 +1,5 @@
 /*
-Lazy Propagation segment Tree
+Lazy Propagation segment Tree Range Sum
 link of the practices on Khata are given below
 https://drive.google.com/drive/folders/0Bzr6_EXSM9kIY3VsNTNBcmVZdVE?usp=sharing
 */
@@ -36,8 +36,8 @@ void update(int low,int high, int pos,int idx,int value)
 }
 
 void lazyHelper(int low,int high,int pos) // Helper method to maintain the Lazy and main tree
-{    printf("Called \n");
-    tree[pos]+=lazy[pos];
+{    //printf("Called \n");
+    tree[pos]+=(high-low+1)*lazy[pos];
     if(low!=high)  // If not a Leaf Node , making childs not updted yet
     {
         lazy[pos*2+1]+=lazy[pos];
@@ -71,7 +71,8 @@ void lazyUpdate(int low,int high,int pos,int updateLowIdx,int updateHighIdx,int 
 
 int queryLazy(int low,int high,int pos,int queryLowIdx,int queryHighIdx)
 {
-    if(lazy[pos]!=0) lazyHelper(low,high,pos);// If the index is not up to date, then make it update
+    if(lazy[pos]!=0) // If the index is not up to date, then make it update
+        lazyHelper(low,high,pos);
 
     if(high<queryLowIdx || low>queryHighIdx) return 0;  // No overlap
     if(queryLowIdx<=low && high<=queryHighIdx)
@@ -155,14 +156,30 @@ https://drive.google.com/drive/folders/0Bzr6_EXSM9kIY3VsNTNBcmVZdVE?usp=sharing
 9 7 8 2 3 15 12 19 17 23 10 11 21 6 7 15 24 22 1
 
 2
+10 14
+
+
+3
+5
+2 18
+
+3
+2
+10 14
+
+
+2
+10 14
+
+2
+17 17
+
+
+2
 2 15
 
 1
 27 11
-
-3
-5
-2 17
 
 3
 5
@@ -171,5 +188,18 @@ https://drive.google.com/drive/folders/0Bzr6_EXSM9kIY3VsNTNBcmVZdVE?usp=sharing
 2
 11 13
 
+
+
+3rd case
+
+10
+0 0 0 0 0 0 0 0 0 0
+
+3
+10
+0 9
+
+2
+5 7
 
 */
