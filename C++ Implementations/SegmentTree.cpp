@@ -6,23 +6,24 @@ int tree[2*N];
 
 int  nmbrOfData; // user decided number
 
-
 void printTree()
 {
-    for(int i=nmbrOfData-1;i>0;i--)
-        printf("Parent : %d \n left: %d ,  Right : %d\n",i,tree[i*2],tree[i*2+1]);
+    //for(int i=nmbrOfData-1;i>0;i--)
+       // printf("Parent : %d \n left: %d ,  Right : %d\n",i,tree[i*2],tree[i*2+1]);
+       for(int i=0;i<2*nmbrOfData;i++) printf("%d, ",tree[i]);
 }
 
 void build()
 {
     for(int i=nmbrOfData-1;i>0;i--) tree[i]=tree[i*2]+tree[i*2+1];
     printTree();
+
 }
 
 void update(int number,int position)
 {
    tree[position] = number;
-   for(int i=position;i>0;i=i/2) tree[i/2] = tree[i]+tree[i^1] ; // if I is odd then i^1 gets even and If I is Odd then i^1 gets odd
+   for(int i=position;i>0;i=i/2) tree[i/2] = tree[i]+tree[i^1] ; // if I is odd then i^1 gets even and If I is Even then i^1 gets odd
 }
 
 void RmQ(int left,int right)
@@ -53,8 +54,10 @@ int main()
     return 0;
 }
 
-/*
-13
+/* 93, 42, 51, 18, 24, 26, 25, 5, 13, 18, 6, 17, 9, 11, 14, 2, 3, 5, 8, 11, 7, 0, 0, 13, 4, 0,
+   93, 68, 25, 32, 36, 17, 8, 19, 13, 17, 19, 15, 2, 3, 5, 8, 11, 7, 6, 13, 4, 9, 10, 1, 14,
+   2,3,5,8,11,7,6,13,4,9,10,1,14
+13sssssssswssssss
 2
 3
 5
@@ -71,3 +74,7 @@ int main()
 
 3 9
 */
+
+// 9,7,8, 2, 3, 15, 12, 19, 17, 23, 10, 11, 21, 6, 7, 15, 24, 22, 1
+//  for(int i=0;i<n;i++) scanf("%d",in[i]);
+

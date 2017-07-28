@@ -50,8 +50,7 @@ class Tree
 	  
 	  int query(int i) 
 	  {
-		 int sum= bit[i];
-		 i = getParent(i);
+		 int sum= 0;
 		 while(i>0)
 		 {
 		   sum+= bit[i] ;
@@ -67,9 +66,8 @@ class Tree
 	  }
       
       void update(int pos,int i)
-	  {   int change = i - bit[pos];
-		  bit[pos] = i;
-		  pos = getNext(pos);
+	  {   
+		  int change = i - bit[pos];
 		  while(pos<=n)
 		  {
 		     bit[pos] += change;

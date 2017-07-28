@@ -90,7 +90,7 @@ void autocomplete(char *ch,int length)
          {
            str[length++] = i + 'a'; str[length] = '\0';
            temp= temp->childrens[i]; i=-1; // so can start searching from the  0 index of the new Discovered Node
-           if(temp->flag == true) printf("str %s : \n",str);
+           if(temp->flag == true) printf("str : %s\n",str);
          }
          else if(temp->presence!=true  && temp->auton == true) break; // if No Data is avilable
 
@@ -98,7 +98,7 @@ void autocomplete(char *ch,int length)
          check if further data is available */
          if( (i==25 && temp->auton != true)  || (temp->presence!=true && temp->auton != true ))
             { i = temp->pIndex;  temp = temp->parent;  str[--length] = '\0';}
-         else if(i==25 && temp->auton == true) break; // If the First Parent Node is Serched Completely, Terminate  the serch
+        // else if(i==25 && temp->auton == true) break; // If the First Parent Node is Serched Completely, Terminate  the serch
        }
 
 
@@ -200,7 +200,7 @@ int main()
   tonmoy
   shakil
 
-  fi
+  to
 
 
 
