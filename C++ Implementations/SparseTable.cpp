@@ -21,12 +21,11 @@ void makeSparseTable(int n)
   for(int j=1;(1<<j)<=n;j++)
   {
       for(int i=0; i+(1<<j)-1<n; i++)
-      {   //printf("Problem %d\n",i);
+      {
           int x = sparse[i][j-1];
           int y = sparse[i+(1<<j-1)][j-1];
           if(data[x]<data[y]) sparse[i][j]= x;
           else sparse[i][j] = y ;
-          //printf("Problem %d\n",i);
       }
   }
 }
