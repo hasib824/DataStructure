@@ -10,7 +10,7 @@ void buildTree(int n)
        int a,b;
        scanf("%d%d",&a,&b);
        A[i*2] = a; // left child insertion
-       A[i*2+1] = b; // left child insertion
+       A[i*2+1] = b; // Right child insertion
        A[i]=a+b;    //  Adding the addition to root;
    }
    for(int i=n/2-1;i>0;i--)
