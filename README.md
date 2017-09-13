@@ -1,4 +1,4 @@
-<h1  style='color:green' >DataStructure</h1>
+<h1  style="color:green">DataStructure</h1>
 
 **MergeSort :**
 -   [MyCodeSchool Video](https://www.youtube.com/watch?v=TzeBrDU-JaY)
