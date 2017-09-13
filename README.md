@@ -1,8 +1,8 @@
 <h1  style='color:green' >DataStructure</h1>
 
 **MergeSort :**
-- [MyCodeSchool Video](https://www.youtube.com/watch?v=TzeBrDU-JaY)
--     [Coding help from vogella link](https://www.vogella.com/tutorials/JavaAlgorithmsMergesort/article.html)
+-   [MyCodeSchool Video](https://www.youtube.com/watch?v=TzeBrDU-JaY)
+-   [Coding help from vogella link](https://www.vogella.com/tutorials/JavaAlgorithmsMergesort/article.html)
 -  	[Vogela code on my github github link](https://github.com/hasib824/DataStructure/blob/master/Java_Implementations/MergeSortVogella.java)
 
 **Asymptotic Notation And Complexity Analysis**:
