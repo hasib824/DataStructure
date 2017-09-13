@@ -19,7 +19,7 @@
 **Segment tree**
 - 	Recursive : Tushar Roy [video tutorial](https://www.youtube.com/watch?v=ZM-sV9zQPEs&list=PLrmLmBdmIlpv_jNDXtJGYTPNQ2L1gdHxu)
 - 	Iterative approch from [codeforces](http://codeforces.com/blog/entry/18051)
-- 	saimors [code](https://github.com/SaimorAlam/Algorithm/blob/master/Segment%20Tree/Segment%20Tree.cpp)
+- 	saimor's [code](https://github.com/SaimorAlam/Algorithm/blob/master/Segment%20Tree/Segment%20Tree.cpp)
 - 	 Quora good segment tree tutorial [links](https://www.quora.com/What-are-some-good-tutorials-on-segment-trees)
 
 **Binary Indexed Tree**
