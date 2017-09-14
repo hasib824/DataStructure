@@ -24,7 +24,7 @@
 
 **Binary Indexed Tree**
 - 	Tushar Roy [video tutorial](https://www.youtube.com/watch?v=ZM-sV9zQPEs&list=PLrmLmBdmIlpv_jNDXtJGYTPNQ2L1gdHxu)
-- 	Nice [blog post](zobayer.blogspot.in/2013/11/various-usage-of-bit.html) by Zobayer Ahmed
+- 	Nice [blog post](http://zobayer.blogspot.in/2013/11/various-usage-of-bit.html) by Zobayer Ahmed
 - 	kartikkukreja [blog post](https://kartikkukreja.wordpress.com/2013/12/02/range-updates-with-bit-fenwick-tree/)
 
 **Trie**
