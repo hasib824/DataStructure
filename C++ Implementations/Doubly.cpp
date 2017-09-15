@@ -7,8 +7,8 @@ struct Node
     int data;
     Node * next ;
 };
-Node * head = NULL;
-Node * tail = NULL;
+Node * head = NULL; // Head is the last data
+Node * tail = NULL; // tail is the first data .
 
 
 void addFirst(int n)
