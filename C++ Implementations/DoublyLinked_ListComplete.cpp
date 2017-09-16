@@ -93,12 +93,9 @@ void removeItem(int n)
     {
         if(temp->data == n)
         {
-          Node* temp1 = temp->prev;
-          Node* temp2= temp->next ;
-          free(temp);
-
-          temp1->next = temp2;
-          temp2->prev = temp1 ;
+          temp->prev->next = temp->next;
+          temp->next->prev = temp->prev ;
+          delete temp; break;
 
         }
         temp= temp->next ;
