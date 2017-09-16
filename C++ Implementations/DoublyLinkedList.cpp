@@ -27,7 +27,6 @@ void insertNode(int a)
 
 }
 
-// Reversing the LinkedList
 
 void deleteNode(int pos)
 {   int i=0; Node *temp = head;
