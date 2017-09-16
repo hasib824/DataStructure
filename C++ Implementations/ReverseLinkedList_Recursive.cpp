@@ -24,21 +24,19 @@ void insertNode(int a)
     next=temp;
 }
 
-void reverseNode(Node *heady)
+// Reversing the LinkedList Using Recursion
+
+// Also have a nice approach in MYCODESCHOOL code
+void reverseNode(Node *prev,Node *heady) // prev is the previous node and heady is the current node
 {
-   Node *prev,*next;
-   prev = heady; heady = heady->next;
-   prev->next = NULL;
-   while(heady->next!=NULL)
-   {
-     next = heady->next;
-     heady->next = prev;
-     prev = heady;
-     heady = next;
-   }
-   heady->next = prev ;
-   head = heady;
+    if(heady->next!=NULL) reverseNode(heady,heady->next); // Getting to the last node
+    else head = heady; // If it is the last node, making it as head
+
+    heady->next= prev;
+    prev->next = NULL; // So that the New Last node's next pointer will be NULL .
 }
+
+
 void printList()
 {
     Node *temp = head ;
@@ -66,9 +64,8 @@ int main()
         insertNode(a);
     }
     printList();
-
     printf("Reversed linked list \n");
-    reverseNode(head);  printList();
+    reverseNode(head,head->next);  printList();
 
     freeNodes(head);
     return 0;
@@ -81,3 +78,4 @@ int main()
 14 54 26 35 8 47 25 36
 
 */
+
