@@ -110,7 +110,6 @@ LinkedList intersection(LinkedList llOne,LinkedList llTwo)
         else llTwoHead = llTwoHead->next;
 
     }
-
     return commonList;
 }
 
