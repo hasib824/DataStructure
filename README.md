@@ -6,8 +6,13 @@
 
 **LinkedList :**
 - MycodeSchool DataStructure [Video](http://mycodeschool.com/videos) . (Have screnshots on dropbox)
+- Doubly LinkedList from MyCodeSchool
 - Reverse a linked list Iterative and Recursive from MyCodeSchool.
--
+- Identical LinkedList from [geeksforgeeks](http://www.geeksforgeeks.org/identical-linked-lists/)
+- MergeSort on [LinkedList](https://github.com/hasib824/DataStructure/blob/master/Java_Implementations/MergeSortLinkedList.java)
+- QuickSort on Doubly [LinkedList](https://github.com/hasib824/DataStructure/blob/master/C%2B%2B%20Implementations/IntersectionOfSortedLinkedList.cpp)
+- Intersection of sorted linkedList from [geeksforgeeks](http://www.geeksforgeeks.org/intersection-of-two-sorted-linked-lists/)
+- Detect and remove loop from [LinkedList](http://www.geeksforgeeks.org/detect-and-remove-loop-in-a-linked-list/)
 
 **Breath first search :**
 - 	Shukorno sir Algorithm [slides](https://drive.google.com/drive/u/0/folders/0B_wpV0CZvtDbUGZiQUhQY3NORVE)
