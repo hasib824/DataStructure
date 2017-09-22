@@ -6,8 +6,8 @@
 
 **LinkedList :**
 - MycodeSchool DataStructure [Video](http://mycodeschool.com/videos) . (Have screnshots on dropbox)
-- Doubly LinkedList from MyCodeSchool
-- Reverse a linked list Iterative and Recursive from MyCodeSchool.
+- Doubly [LinkedList](https://github.com/hasib824/DataStructure/blob/master/C%2B%2B%20Implementations/DoublyLinkedList.cpp) from MyCodeSchool
+- Reverse a linked list [Iterative](https://github.com/hasib824/DataStructure/blob/master/C%2B%2B%20Implementations/ReverseLinkedList.cpp) and [Recursive](https://github.com/hasib824/DataStructure/blob/master/C%2B%2B%20Implementations/ReverseLinkedList_Recursive.cpp) from MyCodeSchool.
 - Identical LinkedList from [geeksforgeeks](http://www.geeksforgeeks.org/identical-linked-lists/)
 - MergeSort on [LinkedList](https://github.com/hasib824/DataStructure/blob/master/Java_Implementations/MergeSortLinkedList.java)
 - QuickSort on Doubly [LinkedList](https://github.com/hasib824/DataStructure/blob/master/C%2B%2B%20Implementations/IntersectionOfSortedLinkedList.cpp)
