@@ -2,7 +2,6 @@
 
 using namespace std;
 
-
 struct Node
 {
     Node* left; int data; Node* right;
@@ -64,10 +63,10 @@ void printTreeLL(Node* head)
     printf("head %d \n",head->data);
 
     if(head->left!= NULL)
-        printf("left %d , ",head->left->data);
+      //  printf("left %d , ",head->left->data);
 
     if(head->right!= NULL)
-        printf("right %d ",head->right->data);
+      //  printf("right %d ",head->right->data);
 
     printf("\n");
     printTreeLL(head->left);
@@ -116,7 +115,17 @@ void prinTreeArray()
     }
 }
 
+// Finding Height
 
+// Recursive Find height on LinkedList based BST
+
+int findHeight_recur_ll(Node *root)
+{
+    if(root == NULL) return -1;
+    int left = findHeight_recur_ll(root->left);
+    int right = findHeight_recur_ll(root->right);
+    return max(left,right)+1;
+}
 
 
 int main()
@@ -131,15 +140,17 @@ int main()
         scanf("%d",&a);
         // LinkedList Insertion
         //insert_IterativeLL(a);
-        //root = insert_RecursiveLL(root,a);
+        root = insert_RecursiveLL(root,a);
 
         // Array Insertion
         //insert_iterativeArray(a);
-        insert_recursiveArray(0,a);
+        //insert_recursiveArray(0,a);
     }
 
-    //printTreeLL(root);
-    prinTreeArray();
+    printTreeLL(root);
+   // prinTreeArray();
+
+    printf("Height of the tree is : %d\n",findHeight_recur_ll(root));
 
 }
 
@@ -155,6 +166,18 @@ int main()
 32
 19
 23
+
+10
+14
+25
+33
+69
+89
+98
+108
+321
+325
+
 
 
 */
