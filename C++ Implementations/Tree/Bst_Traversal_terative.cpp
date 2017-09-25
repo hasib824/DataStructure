@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 
+using namespace std;
 struct Node
 {
     Node* left;
@@ -60,11 +61,11 @@ bool isEmpty()
 
 void preorderTraversal(Node* treeRoot)
 {
-
     stackPush(treeRoot);
     Node * t = stackTop();
+   // stack<Node*> myStack ;  // Library stack
     printf("\nPreorder Traversal : ");
-    while(isEmpty() == 0 )
+    while(!isEmpty())
     {
         treeRoot = stackPop();
         printf("%d , ",treeRoot->data);
@@ -72,9 +73,29 @@ void preorderTraversal(Node* treeRoot)
             stackPush(treeRoot->right);
         if( treeRoot->left != NULL )
             stackPush(treeRoot->left);
-
     }
+    printf("\n");
+}
 
+
+void inOrderTraversal(Node * treeRoot)
+{
+    printf("\nInorder Traversal : ");
+    while(1)
+    {
+           if(treeRoot != NULL)
+           {
+                stackPush(treeRoot);
+                treeRoot = treeRoot->left;
+           }
+           else
+           {
+               if(isEmpty()) return;
+               treeRoot = stackPop();
+               printf("%d ,",treeRoot->data);
+               treeRoot = treeRoot->right;
+           }
+    }
 }
 
 
@@ -102,10 +123,9 @@ int main()
         scanf("%d",&a);
         root = addNode(root,a);
     }
-
-    //printf("%d,  ",root->data);
-
     preorderTraversal(root);
+    inOrderTraversal(root);
+    printf("\n");
     return 0;
 }
 
