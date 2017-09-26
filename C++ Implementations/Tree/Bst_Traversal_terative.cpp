@@ -101,40 +101,34 @@ void inOrderTraversal(Node * treeRoot)
 
 void postOrderTraversal(Node* treeNode)
 {
-        printf("\nPostOrder Traversal : %d",treeNode->data);
-        while(1)
+        printf("\nPostOrder Traversal : ");
+        stackPush(treeNode);
+        treeNode= treeNode->left;
+        while(!isEmpty())
         {
             if(treeNode != NULL)
             {
                 stackPush(treeNode);
-                printf("%d, ",stackTop()->data);
                 treeNode = treeNode->left;
             }
             else
-            {   printf("Coming");
-                Node* temp = stackTop();
-                printf("Right %d : ",temp->data);
+            {
+                Node* temp = stackTop()->right;
                 if(temp==NULL)
                 {
+                    temp = stackPop();
                     printf("%d, ",temp->data);
-                    treeNode = NULL;
-
-                    while(temp == stackTop()->right)
+                    while(!isEmpty() && temp == stackTop()->right)
                     {
                         temp = stackPop();
                         printf("%d, ",temp->data);
                     }
-
                 }
                 else
-                {
                     treeNode = temp;
-                }
+
             }
-            if(isEmpty()) return;
-
         }
-
 }
 
 // Adding the BST Nodes
