@@ -20,8 +20,13 @@
 **Infix, post fix , postfix**
 - 	MycodeSchool DataStructure [Video](http://mycodeschool.com/videos) .
 
-**BST**
+**Tree , BST**
 - 	MyCodeschool [video](http://mycodeschool.com/videos)
+-   Insert, update, Remove , search from MyCodeschool.
+-   Traversal Recursive from MyCodeschool
+-   Traversal Iterative from [Tushar roy](https://www.youtube.com/results?search_query=tushar+roy+iterative+tree+traversal)
+-   All Ancestor of a Node from [GeeksForgeeks](http://www.geeksforgeeks.org/print-ancestors-of-a-given-node-in-binary-tree/)
+-   Priority Queue first from Rabindrababu [HeapSort](https://www.youtube.com/results?search_query=rabindrababu+heapsort) and then HackerEarth blog [post](https://www.hackerearth.com/practice/data-structures/trees/heapspriority-queues/tutorial/)
 
 **Segment tree**
 - 	Recursive : Tushar Roy [video tutorial](https://www.youtube.com/watch?v=ZM-sV9zQPEs&list=PLrmLmBdmIlpv_jNDXtJGYTPNQ2L1gdHxu)
