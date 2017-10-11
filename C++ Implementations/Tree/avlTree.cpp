@@ -4,33 +4,30 @@ using namespace std;
 struct Node
 {
     int data;
-    Node* left; Node* right;
+    Node* left;
+    Node* right;
     int height ;
     Node(int n)
     {
-        data = n; height = 0;
-        left= NULL; right= NULL;
+        data = n;
+        height = 0;
+        left= NULL;
+        right= NULL;
     }
 };
 Node* root = NULL;
 
-int setHeight(Node* root)
+int getHeight(Node* temp)
 {
-    int left;int right;
-    if(root->left == NULL )
-        left = -1;
-    else
-        left = root->left->height;
-    if(root->right == NULL)
-        right = -1;
-    else
-        right = root->right->height;
-       int ma =  max(left,right)+1;
-       if(root->data == 14 ) printf("14 : %d\n",ma);
-    return ma;
+    if(temp==NULL) return -1;
+    return temp->height;
 }
 
-void balance(Node* temp)
+int setHeight(Node* root)
+{
+    return  max(getHeight(root->left),getHeight(root->right))+1;;
+}
+void adjustHeight(Node* temp)
 {
     if(temp->left!=NULL)
         temp->left->height = setHeight(temp->left);
@@ -44,7 +41,7 @@ Node* leftRotate(Node* root)
     Node* temp = root->right;
     root->right = temp->left;
     temp->left = root;
-    balance(temp);
+    adjustHeight(temp);
     return temp;
 }
 Node* rightRotate(Node* root)
@@ -52,13 +49,33 @@ Node* rightRotate(Node* root)
     Node* temp = root->left;
     root->left = temp->right;
     temp->right = root;
-    balance(temp);
+    adjustHeight(temp);
     return temp;
 }
 
+Node* balancer(Node* root)
+{
+    int lefth = getHeight(root->left);
+    int righth= getHeight(root->right);
 
+    if(lefth - righth > 1)
+    {
+        if(getHeight(root->left->left) < getHeight(root->left->right))
+            root->left = leftRotate(root->left);
+        root = rightRotate(root);
+    }
+    else if(lefth - righth < -1)
+    {
+        if(getHeight(root->right->left) > getHeight(root->right->right))
+            root->right = rightRotate(root->right);
+        root=leftRotate(root);
+    }
+    else
+        root->height = setHeight(root);
+    return root;
+}
 
-Node* insert_avl(Node* root ,int i)
+Node* insert_avl(Node* root,int i)
 {
     if(root==NULL) return new Node(i);
     if( i< root->data )
@@ -66,51 +83,7 @@ Node* insert_avl(Node* root ,int i)
     else if(i> root->data)
         root->right = insert_avl(root->right,i);
 
-    int lefth,righth;
-
-    if(root->left !=NULL) lefth = root->left->height;
-    else lefth = -1;
-
-    if(root->right !=NULL) righth = root->right->height;
-    else righth = -1;
-
-
-    if(lefth - righth > 1)
-    {   //printf("oita");
-        int left,right;
-        if(root->left->left !=NULL) left = root->left->left->height;
-        else left = -1;
-        if(root->left->right !=NULL) right = root->left->right->height;
-        else right = -1;
-
-        if(left < right)
-        {
-            root->left = leftRotate(root->left);
-            root = rightRotate(root);
-        }
-        else root = rightRotate(root);
-
-    }
-    else if(lefth - righth < -1)
-    {   //printf("Aita");
-        int left,right;
-        if(root->right->left !=NULL) left = root->right->left->height;
-        else left = -1;
-        if(root->right->right !=NULL) right = root->right->right->height;
-        else right = -1;
-
-        if(left > right)
-        {
-            root->right = rightRotate(root->right);
-           root = leftRotate(root);
-        }
-        else root=leftRotate(root);
-
-    }
-    else
-        root->height = setHeight(root);
-
-    return root;
+    return balancer(root);
 }
 
 void printTree(Node* root)
@@ -127,7 +100,7 @@ int main()
 {
     int n;
     scanf("%d",&n);
-    for(int i=0;i<n;i++)
+    for(int i=0; i<n; i++)
     {
         int a;
         scanf("%d",&a);
