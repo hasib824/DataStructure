@@ -1,3 +1,7 @@
+// Simple Insertion and Deletion Operation Is Implementted
+// Insertion learned from Tushar roy And Knowledge gate
+// Deletion Learned from My CodeSchool And Geeksfor Geeks
+
 #include<bits/stdc++.h>
 using namespace std;
 

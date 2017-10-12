@@ -28,7 +28,9 @@
 - Check if tree is [BST](https://www.programcreek.com/2012/12/leetcode-validate-binary-search-tree-java/)
 -   All Ancestor of a Node from [GeeksForgeeks](http://www.geeksforgeeks.org/print-ancestors-of-a-given-node-in-binary-tree/)
 -   Priority Queue first from Rabindrababu [HeapSort](https://www.youtube.com/results?search_query=rabindrababu+heapsort) and then HackerEarth [blog post](https://www.hackerearth.com/practice/data-structures/trees/heapspriority-queues/tutorial/)
-
+- **AVL Tree**
+  - Insertion from [Tushar roy](https://www.youtube.com/watch?v=rbg7Qf8GkQ4) And [Knowledge gate](https://www.youtube.com/results?search_query=knowledge+gate+avl+tree)
+  - Deletion from [MyCodeSchool](https://www.youtube.com/watch?v=gcULXE7ViZw) and [GeeksForgeeks](http://www.geeksforgeeks.org/avl-tree-set-2-deletion/)
 
 **Segment tree**
 - 	Recursive : Tushar Roy [video tutorial](https://www.youtube.com/watch?v=ZM-sV9zQPEs&list=PLrmLmBdmIlpv_jNDXtJGYTPNQ2L1gdHxu)
