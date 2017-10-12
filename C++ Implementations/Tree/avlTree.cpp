@@ -55,6 +55,7 @@ Node* rightRotate(Node* root)
 
 Node* balancer(Node* root)
 {
+    if(root == NULL ) return NULL;
     int lefth = getHeight(root->left);
     int righth= getHeight(root->right);
 
@@ -86,6 +87,52 @@ Node* insert_avl(Node* root,int i)
     return balancer(root);
 }
 
+int getMax(Node* root)
+{
+    if(root->right == NULL)
+        return root->data;
+    return getMax(root->right);
+}
+
+Node* deleteNode(Node* root,int data)
+{
+    if(root == NULL) return NULL;
+    if(data < root->data)
+        root->left = deleteNode(root->left,data);
+    else if(data > root->data)
+        root->right = deleteNode(root->right,data);
+    else // Enters if the data is found
+    {
+        //Node with No child
+        if(root->left == NULL && root->right == NULL)
+        {
+            delete root; root = NULL;
+        }
+
+        // Node with single child
+        else if(root->left != NULL && root->right==NULL) // Node with left child
+        {
+            Node* temp = root->left;
+            delete root; root = root->left;
+        }
+       else if(root->right != NULL && root->left==NULL) // Node with Right Child
+        {
+            Node* temp = root->right;
+            delete root; root = root->right;
+        }
+
+        // Node with Two Child
+       else if(root->left != NULL && root->right != NULL)
+        {
+            int data = getMax(root->left);
+            root->data = data;
+            root->left = deleteNode(root->left,data);
+        }
+    }
+
+    return balancer(root); // Returning the Root After Balancing
+}
+
 void printTree(Node* root)
 {
     if(root == NULL ) return;
@@ -106,6 +153,8 @@ int main()
         scanf("%d",&a);
         root=insert_avl(root,a);
     }
+    root = deleteNode(root,21);
+    root =deleteNode(root,18);
     printTree(root);
     return 0;
 }
