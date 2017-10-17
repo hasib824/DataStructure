@@ -48,6 +48,10 @@
  -  Tushar Roy [video](https://www.youtube.com/watch?v=AXjmTQ8LEoI)
  -  Shafayts planet [blog post](http://www.shafaetsplanet.com/planetcoding/?p=1679)
 
+**HashTable**
+- Tutorials Point [video](https://www.tutorialspoint.com/data_structure/hashing.asp)
+- Hash [Functions](http://www.partow.net/programming/hashfunctions/index.html#top)
+
 **Sparse Table Range Minimum/Maximum Query**
   - Tushar Roy [video](https://www.youtube.com/watch?v=c5O7E_PDO4U)
   - Tanvir hossain [blog post](https://tanvir002700.wordpress.com/2015/05/27/sparse-table/)
