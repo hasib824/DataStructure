@@ -1,4 +1,10 @@
+/*
+Basic Hashtable
+HashFunction Implements JShash from the url below
+URL: http://www.partow.net/programming/hashfunctions/index.html
+*/
 #include<bits/stdc++.h>
+
 using namespace std;
 
 const int s = 3; // n can be vary based on our requirements
