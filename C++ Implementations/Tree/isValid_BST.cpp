@@ -55,8 +55,8 @@ bool checkBst(Node* root)
             if(temp->data > temp->right->data) return false;
             st.push(temp->right);
         }
-
    }
+   return true;
 }
 
 int main()
