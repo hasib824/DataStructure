@@ -1,12 +1,11 @@
 package dijakstra;
 public class Datas
 {
-	int dist;
-	int node;
-	Datas(int dist,int node)
+	float dist;
+	String connectedCity;
+	Datas(String connectedCity,float dist)
 	{
 		this.dist = dist;
-		this.node = node;
-	}
-	
+		this.connectedCity = connectedCity;
+	}	
 }
