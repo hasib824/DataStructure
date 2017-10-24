@@ -17,19 +17,20 @@ public class MyPriorityQueue<T>
 		datas.add(data);
                 size = datas.size()-1;
 		int l = size;
-		while(l>=0)
+		while(l>0)
 		{	T child = datas.get(l);
-			T parent = datas.get(l);
+			T parent = datas.get(l/2);
 			if(0>comparator.compare(child,parent))
 			{
                             datas.set(l/2, child);
                             datas.set(l,parent);
 			}
+                        l=l/2;
 		}
 	}
 	T top()
 	{
-            return datas.get(size);
+            return datas.get(0);
 	}
 	
 	void pop()
