@@ -46,7 +46,7 @@ public class Dijakstra {
         } 
     }
     
-    
+    // Implements DijaksTra Algorithm
     static float findMinDistance(MyHashTable<String,ArrayList<Datas>> myHashTable,ArrayList<String> str,String source,String destination,int nodes)
     {   
         String ss = source;
@@ -88,7 +88,7 @@ public class Dijakstra {
                         
                 }
             }
-        }// parents.put(ss,destination);
+        }
        // for(String s :str)
             System.out.println("\nMin distance of "+ss+" to "+ destination +" is : "+distance.get(destination));
              System.out.print("The path is : ");
