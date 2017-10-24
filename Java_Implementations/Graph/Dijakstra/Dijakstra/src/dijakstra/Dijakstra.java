@@ -1,21 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package dijakstra;
 
-/**
- *
- * @author Hasibuzzaman
- */
+
 public class Dijakstra {
 
-    /**
-     * @param args the command line arguments
-     */
+   
     public static void main(String[] args) {
-        // TODO code application logic here
+       MyPriorityQueue pq = new MyPriorityQueue(new MyComparator());
+       pq.push(new Datas(5,10));
+       pq.push(new Datas(8,12));
+       pq.push(new Datas(12,9));
+       pq.push(new Datas(3,5));
+       
+        Datas top = (Datas)pq.top();
+        System.out.println("Data "+top.dist+ " Node : "+top.node);
     }
     
 }
