@@ -113,10 +113,10 @@ void postOrderTraversal(Node* treeNode)
             }
             else
             {
-                Node* temp = stackTop()->right;
-                if(temp==NULL)
+               treeNode = stackTop()->right;
+                if(treeNode==NULL)
                 {
-                    temp = stackPop();
+                    Node* temp = stackPop();
                     printf("%d, ",temp->data);
                     while(!isEmpty() && temp == stackTop()->right)
                     {
@@ -124,8 +124,7 @@ void postOrderTraversal(Node* treeNode)
                         printf("%d, ",temp->data);
                     }
                 }
-                else
-                    treeNode = temp;
+      
 
             }
         }
